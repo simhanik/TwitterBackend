@@ -52,9 +52,13 @@ app.listen(PORT, async ()=> {
     // await tweet3.save()
     // console.log(tweet3);
 
-    const tweet4 = await tweetRepo.getWithComment('6868c4ebd59853d64a70ab54')
-    console.log(tweet4);
+    // const tweet4 = await tweetRepo.getWithComment('6868c4ebd59853d64a70ab54')
+    // console.log(tweet4);
+      
+    const tweet5 = await tweetRepo.getAll(0,5)
+    console.log(tweet5);
     
+    console.log(tweet5[0].contentWithEmail);
     
     
     
