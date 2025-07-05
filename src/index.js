@@ -55,10 +55,13 @@ app.listen(PORT, async ()=> {
     // const tweet4 = await tweetRepo.getWithComment('6868c4ebd59853d64a70ab54')
     // console.log(tweet4);
       
-    const tweet5 = await tweetRepo.getAll(0,5)
+    const tweet5 = await tweetRepo.getAll(0,2)
     console.log(tweet5);
     
     console.log(tweet5[0].contentWithEmail);
+    
+    const tweet6 = await tweetRepo.create({content:'With hooks now'})
+    console.log(tweet6);
     
     
     
