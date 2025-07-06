@@ -13,5 +13,10 @@ app.listen(PORT, async ()=> {
     await connect()
     console.log("Mongodb connected");
     const tweetRepo = new TweetRepository()
+    const tweets = await Tweet.find({
+        content:["First tweet","my tweet",'4561649']
+    })
+    console.log(tweets);
+    
 
 })
