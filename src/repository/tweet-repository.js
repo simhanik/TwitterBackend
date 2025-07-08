@@ -1,13 +1,14 @@
 const Tweet = require('../model/tweet.js')
 
 class TweetRepository {
-    async create(data){
+    async create(data) {
         try {
-            const tweet = await Tweet.create(data)
-            return tweet
+            const tweet = new Tweet(data);  // ✅ proper document instance
+            await tweet.save();             // ✅ saves to DB
+            return tweet;                   // ✅ can be modified later (hashtags etc.)
         } catch (error) {
-            console.log(error);
-            
+            console.log("Error creating tweet:", error);
+            throw error;
         }
     }
 
@@ -31,16 +32,6 @@ class TweetRepository {
         }
     }
     
-    async update(tweetId,data){
-        try {
-            const tweet = await Tweet.findByIdAndUpdate(tweetId,data,{new:true})
-            return tweet
-        } catch (error) {
-            console.log(error);
-            
-        }
-    }
-
     async destroy(id){
         try {
             const tweet = await Tweet.findByIdAndDelete(id)
