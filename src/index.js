@@ -41,7 +41,7 @@ app.listen(PORT, async ()=> {
     //     password:'123456',
     //     name:'Nikhil'
     // })
-    const users = await userRepo.getAll()
-    const likeService = new LikeService()
-    await likeService.toggleLike(tweets[0]._id, 'Tweet', users[0]._id)
+    // const users = await userRepo.getAll()
+    // const likeService = new LikeService()
+    // await likeService.toggleLike(tweets[0]._id, 'Tweet', users[0]._id)
 })
