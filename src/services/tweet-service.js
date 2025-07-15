@@ -37,13 +37,18 @@ class TweetService {
             await tag.save()
         }))
         
-        // Step 7: Combine all hashtags and assign to tweet
-        const allTags = [...alreadyPresentsTags, ...response];
-        tweet.hashtags = allTags.map(tag => tag._id);
-        await tweet.save();
+        // // Step 7: Combine all hashtags and assign to tweet
+        // const allTags = [...alreadyPresentsTags, ...response];
+        // tweet.hashtags = allTags.map(tag => tag._id);
+        // await tweet.save();
 
         return tweet
         
+    }
+
+    async get(tweetId) {
+        const response = await this.tweetRepository.getWithComment(tweetId)
+        return response
     }
 
 }
